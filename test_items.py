@@ -6,5 +6,6 @@ link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
 
 def test_guest_should_see_login_link(browser):
     browser.get(link)
-    browser.find_element(By.CSS_SELECTOR, ".btn-add-to-basket")
+    buttons = browser.find_elements(By.CSS_SELECTOR, ".btn-add-to-basket")
+    assert len(buttons) > 0, 'add_to_basket button not found'
     time.sleep(30)
